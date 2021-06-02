@@ -1,0 +1,71 @@
+body{
+    
+    margin:20px;
+    background-image: url('https://png.pngtree.com/thumb_back/fw800/back_our/20190625/ourmid/pngtree-black-gold-money-gold-coin-background-image_262431.jpg') ;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.nav{
+    display:grid;
+    grid-template-columns: 30% 30% 10% 10% 10% 13%;
+    border:3px solid pink;
+    border-radius: 15px;
+    padding:20px;
+    background-color:pink;
+    font-size: 25px;
+    opacity: 0.9;
+    
+}
+.quries,.home,.customer,.Transfer,.addcustomer{
+    font-family: "Sofia", sans-serif;
+    transform: scale(1);
+    transition:0.3s ease-in-out;
+    
+}
+
+.home:hover,.quries:hover,.customer:hover,.Transfer:hover,.addcustomer:hover{
+    
+    text-decoration: underline;
+    text-decoration-color: aqua;
+    transform: scale(1.1);
+    
+    
+}
+.font-effect-outline{
+    font-family: "Audiowide", sans-serif;
+    font-size:30px;
+    color:green;  
+   
+    transition: width 1s, height 1s, transform 5s;
+}
+.font-effect-outline:hover{
+    transform: rotate(360deg);
+}
+
+.add-cus{
+    color:red;
+
+    
+}
+input[type="text"],input[type="number"]{
+    width:300px;
+    height: 30px;
+    text-align: center;
+}
+fieldset{
+    text-align: center;
+    font-size: 30px;
+    font-family:"Sofia", sans-serif ;
+}
+.submit{
+    padding:10px;
+}
+
+
+
+
+
+
+
+
+
