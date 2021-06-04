@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="refresh" contant="1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia&effect=neon|outline|emboss|shadow-multiple">
+    <script src="script.js"> </script>
+    <title>Banking System</title>
+
+    <style>
+        body {font-family: Arial, Helvetica, sans-serif;}
+        
+        /* The Modal (background) */
+        .modal {
+          display: none; /* Hidden by default */
+          position: fixed; /* Stay in place */
+          z-index: 1; /* Sit on top */
+          padding-top: 30px; /* Location of the box */
+          left:0;
+          top: 0;
+          width: 100%; /* Full width */
+          height: 100%; /* Full height */
+          overflow: auto; /* Enable scroll if needed */
+          background-color: rgb(0,0,0); /* Fallback color */
+          background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+        }
+        
+        /* Modal Content */
+        .modal-content {
+          background-color: #fefefe;
+         
+          border: 1px solid #888;
+          margin:100px 400px 30px 500px;
+          
+        }
+        
+        /* The Close Button */
+        .close {
+          color: #aaaaaa;
+          float: right;
+          font-size: 28px;
+          font-weight: bold;
+        }
+        
+        .close:hover,
+        .close:focus {
+          color: #000;
+          text-decoration: none;
+          cursor: pointer;
+        }
+        </style>
+
+
+</head>
+<body>
+    <div class="header"></div>
+    <div class="nav">
+        <div class="quries">Any Quries:<span id="number">9092097912</span></div>
+        <div  class="font-effect-outline">BANKING SYSTEM</div>
+        <div class="home">Home</div>
+        <div class="customer"><a href="history.php"> customer</a></div>
+        <div class="Transfer"><a href="transfer.php" target="_blank">Transfer</a></div>
+        <div class="addcustomer" id="myBtn">Add Customer</div>
+        
+    </div>
+
+    <!-- model box add customer -->
+    <div id="myModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <div class="add-cus">
+              <form action="cus.php" method="post" autocomplete="on">
+                  <fieldset>
+                      <legend> Add New Customer</legend>
+                      Customer Id:<br>
+                      <input type="text" name="cus_id" required> <br>
+                      Account Number:<br>
+                      <input type="number" name="cus_acno" required> <br>
+
+
+                      Customer Name:<br>
+                      <input type="text" name="cus_name" required><br>
+                      Amount:<br>
+                      <input type="number" name="cus_amount" required><br>
+                      <input type="submit" class="submit">
+                  </fieldset>
+              </form>
+              
+          </div>
+
+          
+        </div>
+      
+      </div>
+      <br>
+      <div class="poster" style="background-color: yellow; border-radius: 30px; opacity: 0.6; display: grid;grid-template-columns: 40% 35% 20%;">
+        <div><img src="https://thumbs.dreamstime.com/b/banking-conceptual-logo-unique-vector-symbol-banking-system-t-global-financial-circulation-money-88352705.jpg" width="300px" height="300px" style="border: 2px solid red; border-radius: 50px; margin: 20px;"></div>
+        <div style="padding-top:50px;"><img src="https://www.animatedimages.org/data/media/707/animated-welcome-image-0033.gif" width="300p1x" height="50px"> <br><h2 style="color:rgb(15, 216, 15);padding-left: 130px;">to</h2><h1 style="font-family: 'Sofia', sans-serif; color:red"> Our Banking System</h1></div>
+        <div><img src="https://media5.newsnationtv.com/images/2018/09/29/cards-474704959.jpg" width="300px" height="300px" style="border: 2px solid red; border-radius: 50px; margin: 20px;"></div>
+        
+
+      </div>
+      <br>
+      <div class='count' style="background-color: white; border-radius: 30px; opacity: 0.6; display: grid;grid-template-columns: 40% 30% 50%;">
+      <h2> Bank user and Transaction count Details:</h2>
+        <div class="webuser"><h2 style="color:red;"> New customer Count:
+
+
+          <?php
+          $con=mysqli_connect("localhost","root","","banking_system");
+// Check connection
+          if (mysqli_connect_errno())
+          {
+            echo "Failed to connect to MySQL: " . mysqli_connect_error();
+          }
+
+          $sql="SELECT * FROM new_customer";
+
+          if ($result=mysqli_query($con,$sql))
+          {
+// Return the number of rows in result set
+            $rowcount=mysqli_num_rows($result);
+            echo( ' <span style="color:white;margin-left:2px; border:1px solid yellow; border-radius: 50%;padding:0px 20px 0px 0px;background-color:green;font-size:50px">' .$rowcount);
+// Free result set
+    mysqli_free_result($result);
+}
+
+mysqli_close($con);
+?>
+
+      </div>
+      <div class="webuser"><h2 style="color:red;">Toal Transaction count:
+
+
+<?php
+$con=mysqli_connect("localhost","root","","banking_system");
+// Check connection
+if (mysqli_connect_errno())
+{
+  echo "Failed to connect to MySQL: " . mysqli_connect_error();
+}
+
+$sql="SELECT * FROM transation";
+
+if ($result=mysqli_query($con,$sql))
+{
+// Return the number of rows in result set
+  $rowcount=mysqli_num_rows($result);
+  echo( ' <span style="color:white;text-align:center; border:1px solid yellow; border-radius: 50%;padding:0px 20px 0px 0px;background-color:green;font-size:50px">' .$rowcount);
+// Free result set
+mysqli_free_result($result);
+}
+
+mysqli_close($con);
+?>
+
+</div>
+
+
+      
+
+
+      </div>
+</div>
+      <div class=""style="text-align:center;   color:green ;font-size:20px"; >
+      <p>&copy 2021. Made by <b style="color:red; font-family: 'Sofia', sans-serif;">  RAGUNATH  N </b> <br>BE-Computer Science and Engineering<br>M.Kumarasamy College of Engineering,Karur</p>
+      </div>
+
+      <!-- <div class="footer" style="color:green ;font-size:20px" style="text-align:center; margin-left:30px">
+
+<p>&copy 2021. Made by <b style="color:red; font-family: 'Sofia', sans-serif;">  RAGUNATH  N </b> <br>BE-Computer Science and Engineering<br>M.Kumarasamy College of Engineering,Karur</p>
+</div> -->
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <script>
+        // Get the modal
+        var modal = document.getElementById("myModal");
+        
+        // Get the button that opens the modal
+        var btn = document.getElementById("myBtn");
+        
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+        
+        // When the user clicks the button, open the modal 
+        btn.onclick = function() {
+          modal.style.display = "block";
+        }
+        
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+          modal.style.display = "none";
+        }
+        
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+          if (event.target == modal) {
+            modal.style.display = "none";
+          }
+        }
+        </script>
+
+
+<br>
+
+
+    
+</body>
+
+
+
+
+</html>

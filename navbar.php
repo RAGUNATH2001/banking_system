@@ -1,13 +1,11 @@
-body{
-    
-    margin:20px;
-    background-image: url('https://png.pngtree.com/thumb_back/fw800/back_our/20190625/ourmid/pngtree-black-gold-money-gold-coin-background-image_262431.jpg') ;
-    background-repeat: no-repeat;
-    background-size: cover;
-    border:3px double blue;
-    padding:20px;
-}
-.nav{
+<!-- navbar --> 
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia&effect=neon|outline|emboss|shadow-multiple">
+      <nav class="navbar navbar-expand-md navbar-light bg-light">
+        <style>
+          .nav{
+            width:100%;
     display:grid;
     grid-template-columns: 30% 30% 10% 10% 10% 13%;
     border:3px solid pink;
@@ -45,26 +43,7 @@ body{
     transform: rotate(360deg);
 }
 
-.add-cus{
-    color:red;
 
-    
-}
-input[type="text"],input[type="number"]{
-    width:300px;
-    height: 30px;
-    text-align: center;
-    color:green;
-    font-size:20px;
-}
-fieldset{
-    text-align: center;
-    font-size: 30px;
-    font-family:"Sofia", sans-serif ;
-}
-.submit{
-    padding:10px;
-}
 a{
     color:black;
     text-decoration: none;
@@ -79,18 +58,16 @@ a:hover{
     cursor: pointer;
 
 }
-/* poster css */
-
-
-.poster{
-    display: grid;
-    grid-template-columns: 30% 40% 50%;
-}
-
-
-
-
-
-
-
-
+          
+          }
+        </style>
+      <div class="nav">
+        <div class="quries">Any Quries:<span id="number">9092097912</span></div>
+        <div  class="font-effect-outline">BANKING SYSTEM</div>
+        <div class="home"><a href="index.php">Home</a></div>
+        <div class="customer"><a href="history.php"> customer</a></div>
+        <div class="Transfer"><a href="transfer.php" target="_blank">Transfer</a></div>
+        <div class="addcustomer" id="myBtn">Add Customer</div>
+        
+      </div>
+       </nav>
