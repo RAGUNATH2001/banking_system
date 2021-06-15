@@ -1,15 +1,16 @@
 <?php
 
-$servername = "localhost";
-	$username = "root";
-	$password = "";
-	$dbname = "banking_system";
+$host="localhost";
+$dbusername="id16980263_root";
+$dbpassword="4huVF7!A<=IZ]UIf";
+$dbname="id16980263_banking_system";
 
-	$conn = mysqli_connect($servername, $username, $password, $dbname);
+//database connection
+$conn=new mysqli($host,$dbusername,$dbpassword,$dbname);
+if($conn->connect_error){
+  echo 'error';
 
-	if(!$conn){
-		die("Could not connect to the database due to the following error --> ".mysqli_connect_error());
-	}
+}
 
 if(isset($_POST['submit']))
 {
@@ -69,18 +70,17 @@ if(isset($_POST['submit']))
                 $newbalance = $sql2['amount'] + $amount;
                 $sql = "UPDATE new_customer set amount=$newbalance where id=$to";
                 mysqli_query($conn,$sql);
-                
                 $sender = $sql1['name'];
                 $receiver = $sql2['name'];
                 $sql = "INSERT INTO transation(`sender`, `receiver`, `balance`) VALUES ('$sender','$receiver','$amount')";
                 $query=mysqli_query($conn,$sql);
-
                 if($query){
                      echo "<script> alert('Transaction Successful');
                                      window.location='history.php';
                            </script>";
                     
                 }
+                
 
                 $newbalance= 0;
                 $amount =0;
@@ -95,6 +95,8 @@ if(isset($_POST['submit']))
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Transaction</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia&effect=neon|outline|emboss|shadow-multiple">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="css/table.css">
     <link rel="stylesheet" type="text/css" href="css/navbar.css">
@@ -114,26 +116,27 @@ if(isset($_POST['submit']))
     </style>
 </head>
 
-<body style="background-color : orange;">
+<body style="background-image:radial-gradient(rgb(98, 197, 214),rgb(218, 221, 34),gray);">
  
 <?php
   include 'navbar.php';
 ?>
 
 	<div class="container">
-        <h2 class="text-center pt-4" style="color : black;">Transaction</h2>
+        <h2 class="text-center pt-4" style="color : black;"><div  class="font-effect-outline">Money Transaction</div></h2>
             <?php
                 // include 'config.php';
-                $servername = "localhost";
-                $username = "root";
-                $password = "";
-                $dbname = "banking_system";
-            
-                $conn = mysqli_connect($servername, $username, $password, $dbname);
-            
-                if(!$conn){
-                    die("Could not connect to the database due to the following error --> ".mysqli_connect_error());
-                }
+                $host="localhost";
+$dbusername="id16980263_root";
+$dbpassword="4huVF7!A<=IZ]UIf";
+$dbname="id16980263_banking_system";
+
+//database connection
+$conn=new mysqli($host,$dbusername,$dbpassword,$dbname);
+if($conn->connect_error){
+  echo 'error';
+
+}
 
 
                 $sid=$_GET['id'];
@@ -146,39 +149,53 @@ if(isset($_POST['submit']))
                 $rows=mysqli_fetch_assoc($result);
             ?>
             <form method="post" name="tcredit" class="tabletext" ><br>
-        <div>
-            <table class="table table-striped table-condensed table-bordered">
-                <tr style="color : black;">
-                    <th class="text-center">Id</th>
-                    <th class="text-center">Name</th>
+        <!--<div>-->
+        <!--    <table class="table table-striped table-condensed table-bordered">-->
+        <!--        <tr style="color : black;">-->
+        <!--            <th class="text-center">Id</th>-->
+        <!--            <th class="text-center">Name</th>-->
                     <!-- <th class="text-center">Email</th> -->
-                    <th class="text-center">Balance</th>
-                </tr>
-                <tr style="color : black;">
-                    <td class="py-2"><?php echo $rows['id'] ?></td>
-                    <td class="py-2"><?php echo $rows['name'] ?></td>
+        <!--            <th class="text-center">Balance</th>-->
+        <!--        </tr>-->
+        <!--        <tr style="color : black;">-->
+        <!--            <td class="py-2"><?php echo $rows['id'] ?></td>-->
+        <!--            <td class="py-2"><?php echo $rows['name'] ?></td>-->
                     <!-- <td class="py-2"><?php echo $rows['email'] ?></td> -->
-                    <td class="py-2"><?php echo $rows['amount'] ?></td>
-                </tr>
-            </table>
+        <!--            <td class="py-2"><?php echo $rows['amount'] ?></td>-->
+        <!--        </tr>-->
+        <!--    </table>-->
+        <!--</div>-->
+        <br>
+        <div style="text-align:center;">
+            <label style=" color:black;" ><h4 >Transfer from:</h4></label><br>
+        <select style="width:100%;height: 90%;">
+            <option class="table" value="<?php echo $rows['id'];?>" >
+                
+                    <?php echo $rows['name'] ;?> (Balance: 
+                    <?php echo $rows['amount'] ;?> ) 
+               
+                </option>
+            
+        </select>
         </div>
+        
         <br>
         <div class="center" style="text-align:center;"> 
         <label style="color : black;"><b>Transfer To:</b></label>
         <select name="to"  class="form-control" required>
             <option value="" disabled selected>Choose</option>
             <?php
-                // include 'config.php';
-                $servername = "localhost";
-                $username = "root";
-                $password = "";
-                $dbname = "banking_system";
+                include 'config.php';
+                // $servername = "localhost";
+                // $username = "root";
+                // $password = "";
+                // $dbname = "banking_system";
             
-                $conn = mysqli_connect($servername, $username, $password, $dbname);
+                // $conn = mysqli_connect($servername, $username, $password, $dbname);
             
-                if(!$conn){
-                    die("Could not connect to the database due to the following error --> ".mysqli_connect_error());
-                }
+                // if(!$conn){
+                //     die("Could not connect to the database due to the following error --> ".mysqli_connect_error());
+                // }
 
 
                 $sid=$_GET['id'];
@@ -202,11 +219,11 @@ if(isset($_POST['submit']))
             <div>
         </select>
         <br>
-            <label style="color : black;"><b>Amount:</b></label>
+            <label style="color : black;"><b>Transfer Amount:</b></label>
             <input type="number" class="form-control" name="amount" required>   
             <br>
                 <div class="text-center" >
-            <button class="btn mt-3" name="submit" type="submit" id="myBtn" >Transfer</button>
+            <button class="btn mt-3" name="submit" type="submit" id="myBtn" >Transfer amount</button>
             </div>
         </form>
         </div>
