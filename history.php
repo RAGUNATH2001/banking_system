@@ -28,23 +28,35 @@
                 <th class="text-center">Sender</th>
                 <th class="text-center">Receiver</th>
                 <th class="text-center">Amount</th>
-                <th class="text-center">Date & Time</th>
+                <!--<th class="text-center">Date & Time</th>-->
             </tr>
         </thead>
         <tbody>
         <?php
 
             // include 'config.php';
-            $servername = "localhost";
-	$username = "root";
-	$password = "";
-	$dbname = "banking_system";
+    //         $servername = "localhost";
+	// $username = "root";
+	// $password = "";
+	// $dbname = "banking_system";
 
-	$conn = mysqli_connect($servername, $username, $password, $dbname);
+	// $conn = mysqli_connect($servername, $username, $password, $dbname);
 
-	if(!$conn){
-		die("Could not connect to the database due to the following error --> ".mysqli_connect_error());
-	}
+	// if(!$conn){
+	// 	die("Could not connect to the database due to the following error --> ".mysqli_connect_error());
+	// }
+	
+	$host="localhost";
+$dbusername="id16980263_root";
+$dbpassword="4huVF7!A<=IZ]UIf";
+$dbname="id16980263_banking_system";
+
+//database connection
+$conn=new mysqli($host,$dbusername,$dbpassword,$dbname);
+if($conn->connect_error){
+  echo 'error';
+
+}
 
 
 
@@ -59,11 +71,11 @@
         ?>
 
             <tr style="color : black;">
-            <td class="py-2"><?php echo $rows['sno']; ?></td>
+            <td class="py-2"><?php echo $rows['s_no']; ?></td>
             <td class="py-2"><?php echo $rows['sender']; ?></td>
             <td class="py-2"><?php echo $rows['receiver']; ?></td>
             <td class="py-2"><?php echo $rows['balance']; ?> </td>
-            <td class="py-2"><?php echo $rows['datetime']; ?> </td>
+            <!--<td class="py-2"><?php echo $rows['datetime']; ?> </td>-->
                 
         <?php
             }
