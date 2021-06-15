@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Transfer Money</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="css/table.css">
     <link rel="stylesheet" type="text/css" href="css/navbar.css">
@@ -19,19 +20,19 @@
     </style>
 </head>
 
-<body >
+<body style="background-image:radial-gradient(rgb(98, 197, 214),rgb(218, 221, 34),gray);" >
 <?php
-    // include 'config.php';
-    $servername = "localhost";
-	$username = "root";
-	$password = "";
-	$dbname = "banking_system";
+     include 'config.php';
+    // $servername = "localhost";
+	// $username = "root";
+	// $password = "";
+	// $dbname = "banking_system";
 
-	$conn = mysqli_connect($servername, $username, $password, $dbname);
+	// $conn = mysqli_connect($servername, $username, $password, $dbname);
 
-	if(!$conn){
-		die("Could not connect to the database due to the following error --> ".mysqli_connect_error());
-	}
+	// if(!$conn){
+	// 	die("Could not connect to the database due to the following error --> ".mysqli_connect_error());
+	// }
 
 
 
@@ -44,19 +45,19 @@
 ?>
 
 <div class="container">
-        <h2 class="text-center pt-4" style="color : black;">Transfer Money</h2>
+        <h2 class="text-center pt-4" style="color : black;"><div  class="font-effect-outline" style="color:red;">Customer details & operation</div></h2>
         <br>
             <div class="row">
                 <div class="col">
                     <div class="table-responsive-sm">
-                    <table class="table table-hover table-sm table-striped table-condensed table-bordered" style="border-color:black;">
-                        <thead style="color : black;">
+                    <table class="table table-hover table-sm table-striped table-condensed table-bordered" style="border:2px double yellow; text-align:center; background-color:pink; color:red;">
+                        <thead style="color : red; ">
                             <tr>
-                            <th scope="col" class="text-center py-2">Id</th>
-                            <th scope="col" class="text-center py-2">Name</th>
+                            <th scope="col" class="text-center py-2">Customer Id</th>
+                            <th scope="col" class="text-center py-2">Customer Name</th>
                             <!-- <th scope="col" class="text-center py-2">E-Mail</th> -->
-                            <th scope="col" class="text-center py-2">Balance</th>
-                            <th scope="col" class="text-center py-2">Operation</th>
+                            <th scope="col" class="text-center py-2"> Account Balance</th>
+                            <th scope="col" class="text-center py-2">Transfer</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -68,7 +69,7 @@
                         <td class="py-2"><?php echo $rows['name']?></td>
                         <!-- <td class="py-2"><?php echo $rows['email']?></td> -->
                         <td class="py-2"><?php echo $rows['amount']?></td>
-                        <td><a href="selecteduserdetail.php?id= <?php echo $rows['id'] ;?>"> <button type="button" class="btn" style="background-color : #A569BD;">Transact</button></a></td> 
+                        <td><a href="selecteduserdetail.php?id= <?php echo $rows['id'] ;?>"> <button type="button" class="btn" style="background-color:green; color:red;" >Transfer</button></a></td> 
                     </tr>
                 <?php
                     }
