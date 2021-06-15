@@ -64,8 +64,8 @@ a:hover{
       <div class="nav">
         <div class="quries">Any Quries:<span id="number">9092097912</span></div>
         <div  class="font-effect-outline">BANKING SYSTEM</div>
-        <div class="home"><a href="index.php">Home</a></div>
-        <div class="customer"><a href="history.php"> customer</a></div>
+        <div class="home"><a href="index.html">Home</a></div>
+        <div class="customer"><a href="history.php"> History</a></div>
         <div class="Transfer"><a href="transfer.php" target="_blank">Transfer</a></div>
         <div class="addcustomer" id="myBtn">Add Customer</div>
         
