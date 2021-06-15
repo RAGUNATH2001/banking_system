@@ -1,14 +1,15 @@
 <?php
 
-	$servername = "localhost";
-	$username = "root";
-	$password = "";
-	$dbname = "banking_system";
+$host="localhost";
+$dbusername="id16980263_root";
+$dbpassword="4huVF7!A<=IZ]UIf";
+$dbname="id16980263_banking_system";
 
-	$conn = mysqli_connect($servername, $username, $password, $dbname);
+//database connection
+$conn=new mysqli($host,$dbusername,$dbpassword,$dbname);
+if($conn->connect_error){
+  echo 'error';
 
-	if(!$conn){
-		die("Could not connect to the database due to the following error --> ".mysqli_connect_error());
-	}
+}
 
 ?>
